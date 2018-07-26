@@ -63,7 +63,7 @@ function collectAllStringsInDir(dir, strings = {}) {
         console.log('Collecting from', relativePath);
         const content = fs.readFileSync(fullPath, 'utf8');
         const exportVars = require(fullPath);
-        const regexMatches = !!UISTRINGS_REGEX.test(content)
+        const regexMatches = !!UISTRINGS_REGEX.test(content);
         const exportsUIStrings = !!exportVars.UIStrings;
         if (!regexMatches && !exportsUIStrings) continue;
 
