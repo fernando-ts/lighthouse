@@ -118,8 +118,16 @@ function _formatIcuMessage(locale, icuMessageId, icuMessage, values) {
   // pre-process values for the message format like KB and milliseconds
   const valuesForMessageFormat = _preprocessMessageValues(icuMessage, values);
 
-  const formatter = new MessageFormat(messageForMessageFormat, localeForMessageFormat, formats);
-  const formattedString = formatter.format(valuesForMessageFormat);
+  let formattedString;
+  try {
+    const formatter = new MessageFormat(messageForMessageFormat, localeForMessageFormat, formats);
+    formattedString = formatter.format(valuesForMessageFormat);
+  } catch (err) {
+    log.error('i18n', `Problem formatting message: ${JSON.stringify({
+      messageForMessageFormat, localeForMessageFormat, formats, valuesForMessageFormat,
+    }, null, 2)}`);
+    throw err;
+  }
 
   return {formattedString, icuMessage: messageForMessageFormat};
 }

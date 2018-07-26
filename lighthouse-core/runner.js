@@ -67,6 +67,7 @@ class Runner {
           throw new Error('Cannot run audit mode on empty URL');
         }
         if (opts.url && opts.url !== requestedUrl) {
+          log.warn('runner', `${opts.url} !== ${requestedUrl}`);
           throw new Error('Cannot run audit mode on different URL');
         }
       } else {
@@ -186,7 +187,7 @@ class Runner {
     artifacts = Object.assign({}, Runner.instantiateComputedArtifacts(), artifacts);
 
     if (artifacts.settings) {
-      const overrides = {gatherMode: undefined, auditMode: undefined, output: undefined};
+      const overrides = {gatherMode: undefined, auditMode: undefined, output: undefined, locale: undefined};
       const normalizedGatherSettings = Object.assign({}, artifacts.settings, overrides);
       const normalizedAuditSettings = Object.assign({}, settings, overrides);
 
