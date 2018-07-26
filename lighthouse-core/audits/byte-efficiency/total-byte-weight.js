@@ -15,7 +15,7 @@ const UIStrings = {
   'Large network payloads cost users real money and are highly correlated with ' +
   'long load times. [Learn ' +
   'more](https://developers.google.com/web/tools/lighthouse/audits/network-payloads).',
-  displayValue: 'Total size was {totalBytes, number, bytes}\xa0KB',
+  displayValue: 'Total size was {totalBytes}\xa0KB',
 };
 
 const str_ = i18n.createMessageInstanceIdFn(__filename, UIStrings);

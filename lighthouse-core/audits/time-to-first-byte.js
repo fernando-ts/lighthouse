@@ -12,7 +12,7 @@ const UIStrings = {
   title: 'Keep server response times low (TTFB)',
   description: 'Time To First Byte identifies the time at which your server sends a response.' +
     ' [Learn more](https://developers.google.com/web/tools/lighthouse/audits/ttfb).',
-  displayValue: `Root document took {timeInMs, number, milliseconds}\xa0ms`,
+  displayValue: `Root document took {timeInMs}\xa0ms`,
 };
 
 const str_ = i18n.createMessageInstanceIdFn(__filename, UIStrings);

@@ -34,9 +34,9 @@ const LH_ROOT = path.join(__dirname, '../../');
 
 
 const UIStrings = {
-  ms: '{timeInMs, number, milliseconds}\xa0ms',
-  displayValueByteSavings: 'Potential savings of {wastedBytes, number, bytes}\xa0KB',
-  displayValueMsSavings: 'Potential savings of {wastedMs, number, milliseconds}\xa0ms',
+  ms: '{timeInMs}\xa0ms',
+  displayValueByteSavings: 'Potential savings of {wastedBytes}\xa0KB',
+  displayValueMsSavings: 'Potential savings of {wastedMs}\xa0ms',
   columnURL: 'URL',
   columnSize: 'Size (KB)',
   columnCacheTTL: 'Cache TTL',
