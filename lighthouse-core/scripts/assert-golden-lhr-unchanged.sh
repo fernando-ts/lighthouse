@@ -46,6 +46,6 @@ if [ $retVal -eq 0 ]; then
   colorText "✅  PASS. No change in LHR." "$green"
 else
   colorText "❌  FAIL. LHR has changed." "$red"
-  echo "Run \`yarn i18n:collect-strings\` and \`yarn update:sample-json\` to rebaseline the golden LHR."
+  echo "Run \`yarn update:sample-json\` to rebaseline the golden LHR."
 fi
 exit $retVal

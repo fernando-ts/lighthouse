@@ -204,7 +204,7 @@
     "message": "R̂éd̂ír̂éĉt́ŝ ín̂t́r̂ód̂úĉé âd́d̂ít̂íôńâĺ d̂él̂áŷś b̂éf̂ór̂é t̂h́ê ṕâǵê ćâń b̂é l̂óâd́êd́. [L̂éâŕn̂ ḿôŕê](h́t̂t́p̂ś://d̂év̂él̂óp̂ér̂ś.ĝóôǵl̂é.ĉóm̂/ẃêb́/t̂óôĺŝ/ĺîǵĥt́ĥóûśê/áûd́ît́ŝ/ŕêd́îŕêćt̂ś)."
   },
   "lighthouse-core/audits/time-to-first-byte.js | title": {
-    "message": "Ŝér̂v́êŕ r̂éŝṕôńŝé t̂ím̂éŝ ár̂é ŝh́ôŕt̂ (T́T̂F́B̂)"
+    "message": "Ŝér̂v́êŕ r̂éŝṕôńŝé t̂ím̂éŝ ár̂é l̂óŵ (T́T̂F́B̂)"
   },
   "lighthouse-core/audits/time-to-first-byte.js | failureTitle": {
     "message": "R̂éd̂úĉé ŝér̂v́êŕ r̂éŝṕôńŝé t̂ím̂éŝ (T́T̂F́B̂)"

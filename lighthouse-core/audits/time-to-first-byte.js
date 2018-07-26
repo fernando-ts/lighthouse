@@ -9,7 +9,7 @@ const Audit = require('./audit');
 const i18n = require('../lib/i18n');
 
 const UIStrings = {
-  title: 'Server response times are short (TTFB)',
+  title: 'Server response times are low (TTFB)',
   failureTitle: 'Reduce server response times (TTFB)',
   description: 'Time To First Byte identifies the time at which your server sends a response.' +
     ' [Learn more](https://developers.google.com/web/tools/lighthouse/audits/ttfb).',

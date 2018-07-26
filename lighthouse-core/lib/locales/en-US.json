@@ -204,7 +204,7 @@
     "message": "Redirects introduce additional delays before the page can be loaded. [Learn more](https://developers.google.com/web/tools/lighthouse/audits/redirects)."
   },
   "lighthouse-core/audits/time-to-first-byte.js | title": {
-    "message": "Server response times are short (TTFB)"
+    "message": "Server response times are low (TTFB)"
   },
   "lighthouse-core/audits/time-to-first-byte.js | failureTitle": {
     "message": "Reduce server response times (TTFB)"
