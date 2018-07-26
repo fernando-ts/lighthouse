@@ -16,7 +16,7 @@ const LH_ROOT = path.join(__dirname, '../../../');
 const UISTRINGS_REGEX = /UIStrings = (.|\s)*?\};\n/gim;
 
 /**
- * @typedef ICUMessage
+ * @typedef ICUMessageDefn
  * @property {string} message
  * @property {string} [description]
  */
@@ -34,7 +34,7 @@ const defaultDescriptions = {
   failureTitle: 'Shown to users as the title of the audit when it is in a failing state.',
 };
 
-// @ts-ignore - waiting for esprima types, see above TODO
+// @ts-ignore - @types/esprima lacks all of these
 function computeDescription(ast, property, startRange) {
   const endRange = property.range[0];
   for (const comment of ast.comments || []) {
@@ -48,7 +48,7 @@ function computeDescription(ast, property, startRange) {
 
 /**
  * @param {string} dir
- * @param {Record<string, ICUMessage>} strings
+ * @param {Record<string, ICUMessageDefn>} strings
  */
 function collectAllStringsInDir(dir, strings = {}) {
   for (const name of fs.readdirSync(dir)) {
@@ -62,9 +62,18 @@ function collectAllStringsInDir(dir, strings = {}) {
       if (name.endsWith('.js')) {
         console.log('Collecting from', relativePath);
         const content = fs.readFileSync(fullPath, 'utf8');
-        if (!UISTRINGS_REGEX.test(content)) continue;
         const exportVars = require(fullPath);
-        if (!exportVars.UIStrings) throw new Error('UIStrings defined but not exported');
+        const regexMatches = !!UISTRINGS_REGEX.test(content)
+        const exportsUIStrings = !!exportVars.UIStrings;
+        if (!regexMatches && !exportsUIStrings) continue;
+
+        if (regexMatches && !exportsUIStrings) {
+          throw new Error('UIStrings defined but not exported');
+        }
+
+        if (exportsUIStrings && !regexMatches) {
+          throw new Error('UIStrings exported but no definition found');
+        }
 
         // @ts-ignore regex just matched
         const justUIStrings = 'const ' + content.match(UISTRINGS_REGEX)[0];
@@ -93,7 +102,7 @@ function collectAllStringsInDir(dir, strings = {}) {
 }
 
 /**
- * @param {Record<string, ICUMessage>} strings
+ * @param {Record<string, ICUMessageDefn>} strings
  */
 function createPsuedoLocaleStrings(strings) {
   const psuedoLocalizedStrings = {};
@@ -126,13 +135,13 @@ function createPsuedoLocaleStrings(strings) {
 
 /**
  * @param {LH.Locale} locale
- * @param {Record<string, ICUMessage>} strings
+ * @param {Record<string, ICUMessageDefn>} strings
  */
 function writeStringsToLocaleFormat(locale, strings) {
   const fullPath = path.join(LH_ROOT, `lighthouse-core/lib/locales/${locale}.json`);
   const output = {};
-  for (const [key, object] of Object.entries(strings)) {
-    output[key] = object;
+  for (const [key, defn] of Object.entries(strings)) {
+    output[key] = defn;
   }
 
   fs.writeFileSync(fullPath, JSON.stringify(output, null, 2) + '\n');
