@@ -297,15 +297,6 @@ class Util {
   }
 
   /**
-   * @param {number} startTime
-   * @param {number} endTime
-   * @return {string}
-   */
-  static chainDuration(startTime, endTime) {
-    return Util.formatNumber((endTime - startTime) * 1000);
-  }
-
-  /**
    * @param {LH.Config.Settings} settings
    * @return {Array<{name: string, description: string}>}
    */
@@ -393,6 +384,10 @@ Util.UIStrings = {
 
   toplevelWarningsMessage: 'There were issues affecting this run of Lighthouse:',
   scorescaleLabel: 'Score scale:',
+
+  crcInitialNavigation: 'Initial Navigation',
+  crcLongestDurationLabel: 'Longest chain:',
+  crcTransferSizeLabel: 'Transfer Size:',
 };
 
 if (typeof module !== 'undefined' && module.exports) {

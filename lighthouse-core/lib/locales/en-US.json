@@ -313,5 +313,14 @@
   },
   "lighthouse-core/report/html/renderer/util.js | scorescaleLabel": {
     "message": "Score scale:"
+  },
+  "lighthouse-core/report/html/renderer/util.js | crcInitialNavigation": {
+    "message": "Initial Navigation"
+  },
+  "lighthouse-core/report/html/renderer/util.js | crcLongestDurationLabel": {
+    "message": "Longest chain:"
+  },
+  "lighthouse-core/report/html/renderer/util.js | crcTransferSizeLabel": {
+    "message": "Transfer Size:"
   }
 }
