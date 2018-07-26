@@ -14,7 +14,7 @@ describe('Performance: time-to-first-byte audit', () => {
     const mainResource = {
       url: 'https://example.com/',
       requestId: '0',
-      timing: {receiveHeadersEnd: 830, sendEnd: 200},
+      timing: {receiveHeadersEnd: 832.65, sendEnd: 200},
     };
 
     const artifacts = {
@@ -24,8 +24,10 @@ describe('Performance: time-to-first-byte audit', () => {
     };
 
     return TimeToFirstByte.audit(artifacts).then(result => {
-      assert.strictEqual(result.rawValue, 630);
+      assert.strictEqual(result.rawValue, 632.65);
       assert.strictEqual(result.score, 0);
+      // Millisecond number formatting is applied (round to nearest ten, no decimal places)
+      expect(result.displayValue).toBeDisplayString('Root document took 630 ms');
     });
   });
 

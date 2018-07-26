@@ -72,13 +72,26 @@ function _preprocessMessageValues(icuMessage, values) {
       if (el.id && (el.id in values) === false) {
         throw new Error('ICU Message contains a value reference that wasn\'t provided');
       }
+      if (!el.id) return;
+
+      if (el.id.endsWith('Ms')) {
+        formats
+      }
+
+      if (el.id.endsWith('Bytes')) {
+
+      }
     });
 
   // Round all milliseconds to the nearest 10
   parsed.elements
     .filter(el => el.format && el.format.style === 'milliseconds')
     // @ts-ignore - el.id is always defined when el.format is defined
-    .forEach(el => (clonedValues[el.id] = Math.round(clonedValues[el.id] / 10) * 10));
+    .forEach(el => {
+      console.log({el});
+      console.log('sdfldskf');
+      (clonedValues[el.id] = Math.round(clonedValues[el.id] / 10) * 10)
+    });
 
   // Replace all the bytes with KB
   parsed.elements
@@ -121,6 +134,7 @@ function _formatIcuMessage(locale, icuMessageId, icuMessage, values) {
   let formattedString;
   try {
     const formatter = new MessageFormat(messageForMessageFormat, localeForMessageFormat, formats);
+    debugger;
     formattedString = formatter.format(valuesForMessageFormat);
   } catch (err) {
     log.error('i18n', `Problem formatting message: ${JSON.stringify({

@@ -42,14 +42,16 @@ function generateArtifacts(records) {
 describe('Total byte weight audit', () => {
   it('passes when requests are small', () => {
     const artifacts = generateArtifacts([
-      ['file.html', 30],
+      ['file.html', 30.31],
       ['file.js', 50],
       ['file.jpg', 70],
     ]);
 
     return TotalByteWeight.audit(artifacts, {options}).then(result => {
-      assert.strictEqual(result.rawValue, 150 * 1024);
+      assert.strictEqual(result.rawValue, 150.31 * 1024);
       assert.strictEqual(result.score, 1);
+      // Bytes number formatting is applied (divide by 1024, no decimal places)
+      expect(result.displayValue).toBeDisplayString('Total size was 150 KB');
       const results = result.details.items;
       assert.strictEqual(results.length, 3);
       assert.strictEqual(result.extendedInfo.value.totalCompletedRequests, 3);

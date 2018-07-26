@@ -48,7 +48,7 @@
     "message": "Large network payloads cost users real money and are highly correlated with long load times. [Learn more](https://developers.google.com/web/tools/lighthouse/audits/network-payloads)."
   },
   "lighthouse-core/audits/byte-efficiency/total-byte-weight.js | displayValue": {
-    "message": "Total size was {totalBytes, number, bytes} KB"
+    "message": "Total size was {totalBytes} KB"
   },
   "lighthouse-core/audits/byte-efficiency/unminified-css.js | title": {
     "message": "Minify CSS"
@@ -210,7 +210,7 @@
     "message": "Time To First Byte identifies the time at which your server sends a response. [Learn more](https://developers.google.com/web/tools/lighthouse/audits/ttfb)."
   },
   "lighthouse-core/audits/time-to-first-byte.js | displayValue": {
-    "message": "Root document took {timeInMs, number, milliseconds} ms"
+    "message": "Root document took {timeInMs} ms"
   },
   "lighthouse-core/audits/user-timings.js | title": {
     "message": "User Timing marks and measures"
@@ -252,13 +252,13 @@
     "message": "More information about the performance of your application."
   },
   "lighthouse-core/lib/i18n.js | ms": {
-    "message": "{timeInMs, number, milliseconds} ms"
+    "message": "{timeInMs} ms"
   },
   "lighthouse-core/lib/i18n.js | displayValueByteSavings": {
-    "message": "Potential savings of {wastedBytes, number, bytes} KB"
+    "message": "Potential savings of {wastedBytes} KB"
   },
   "lighthouse-core/lib/i18n.js | displayValueMsSavings": {
-    "message": "Potential savings of {wastedMs, number, milliseconds} ms"
+    "message": "Potential savings of {wastedMs} ms"
   },
   "lighthouse-core/lib/i18n.js | columnURL": {
     "message": "URL"
